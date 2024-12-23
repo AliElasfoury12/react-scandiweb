@@ -30,7 +30,7 @@ export default class ProductCard extends Component {
 
                         <div className={`${inStock ? '' : 'grayscale opacity-70'} relative flex justify-center`}>
                             <img 
-                                className='w-full object-contain' 
+                                className='h-96 object-contain' 
                                 src={product.gallery} 
                                 alt="product-image" />
                             {inStock ? '' : 
