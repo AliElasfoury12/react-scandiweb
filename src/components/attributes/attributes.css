@@ -1,0 +1,25 @@
+.text {
+    min-width: 2.25rem;
+    max-width: 4rem;
+    padding: 4px 0;
+    height: fit-content;
+    border: 2px solid black;
+    text-align: center;
+    flex: 1;
+}
+
+.text-selected {
+    color: white;
+    background: black;
+}
+
+.swatch {
+    width: 2rem;
+    height: 2rem;
+    flex: 1;
+}
+
+.swatch-selected {
+    outline: 1px solid #5ECE7B;
+    outline-offset: 1px;
+}

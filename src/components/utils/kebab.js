@@ -1,0 +1,1 @@
+export let kebab = (name) =>  name.replaceAll(' ', '-').toLowerCase()
