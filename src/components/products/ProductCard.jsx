@@ -30,7 +30,7 @@ export default class ProductCard extends Component {
 
                         <div className={`${inStock ? '' : 'grayscale opacity-70'} relative flex justify-center`}>
                             <img 
-                                className='h-96 object-contain' 
+                                className='object-contain' 
                                 src={product.gallery} 
                                 alt="product-image" />
                             {inStock ? '' : 
@@ -53,7 +53,7 @@ export default class ProductCard extends Component {
 
                     {inStock ?
                         <button 
-                            className='absolute right-6 bottom-[6.5rem] w-14 h-14 hidden group-hover:block' 
+                            className='absolute right-6 bottom-[17%] w-14 h-14 hidden group-hover:block' 
                             onClick={() => addToCart(product, this.context)}>
                                 <img src={cartIcon} alt="Quick Shop" />
                         </button>

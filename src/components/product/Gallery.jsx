@@ -11,20 +11,26 @@ export default class Gallery extends Component {
     
     state = {
         image: 0,
-        height: 0
+        galleryHeight: 0,
+        mainImgHeight: 0
     }
 
     componentDidMount () {
         setTimeout(() => {
-            let height = document.getElementById('gallery-images').clientHeight
-            this.setState({height})
-        }, 70)
+            let galleryHeight = document.getElementById('gallery-images').clientHeight
+            let mainImgHeight = document.getElementById('main-image').clientHeight
+            this.setState({galleryHeight})
+            this.setState({mainImgHeight})
+        }, 100)
     }
 
     render() {
         let {product} = this.props
-        let {image, height} = this.state
+        let {image, galleryHeight, mainImgHeight} = this.state
         let gallery = product.gallery
+
+        console.log(galleryHeight, mainImgHeight);
+        
                 
         return ( 
             <div  
@@ -32,19 +38,20 @@ export default class Gallery extends Component {
                 className='flex justify-center gap-10 pr-3 mb-4 max-w-[30rem]'>
                 <aside 
                     id='gallery-images'
-                    className={`${height > 480 ? 'h-96 overflow-y-scroll' : 'h-fit'} px-2 w-fit flex flex-col items-center `} >
+                    style={{height: galleryHeight > mainImgHeight ? `${mainImgHeight}px` : 'fit-content'}}
+                    className={`${galleryHeight > mainImgHeight ? `overflow-y-scroll` : ''} px-2 w-fit flex flex-col items-center `} >
                     {gallery.map((img, index) => {
                         return <img 
                                 onClick={() => this.setState({image: index})}
                                 key={index} 
-                                className='w-28 mb-5 object-contain' 
+                                className='w-32 mb-5 object-contain' 
                                 src={img.img} alt="galery-img" />
                     })}
                 </aside> 
 
                 <div className='flex relative justify-center h-fit'>
                    
-                    <img className='w-[30rem] object-contain' src={product.gallery[image].img} alt="main-image"/>
+                    <img id='main-image' className='max-h-[35rem] object-contain' src={product.gallery[image].img} alt="main-image"/>
 
                    {
                     gallery.length > 1 ? 
