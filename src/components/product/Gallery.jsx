@@ -44,7 +44,7 @@ export default class Gallery extends Component {
                         return <img 
                                 onClick={() => this.setState({image: index})}
                                 key={index} 
-                                className='w-32 mb-5 object-contain' 
+                                className='w-32 h-32 mb-5 object-contain' 
                                 src={img.img} alt="galery-img" />
                     })}
                 </aside> 
