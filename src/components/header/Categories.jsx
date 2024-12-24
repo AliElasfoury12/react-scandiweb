@@ -18,7 +18,7 @@ export default class Categories extends Component {
         
         API.fetch(categoriesSchema)
         .then(res => {
-            let categories = res.categories.categories
+            let categories = res.categories
             this.setState({categories: categories})
 
             let pathname = Router.state.location.pathname
