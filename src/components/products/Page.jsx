@@ -4,6 +4,7 @@ import ProductCard from './ProductCard';
 import { productsSchema } from '../api/Schema';
 import { AppContext } from '../../context';
 import './products.css'
+import ErrorPage from '../ErrorPage';
 
 export default class Page extends Component {
     static contextType = AppContext
@@ -40,8 +41,8 @@ export default class Page extends Component {
         let {products, loading} = this.state
         let {category} = this.context
 
-        if(loading){return <h1>Loading...</h1> }
-
+        if(loading) { return <ErrorPage type='loading'/> }
+        
         let showProducts = products.map((product, index) => {            
             if(product.category == category || category == 'all') {
                 return (

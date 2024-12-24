@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Page from "./components/products/Page";
 import ProductPage from "./components/product/ProductPage";
+import ErrorPage from "./components/ErrorPage";
 
 export let Router = createBrowserRouter([
     {
@@ -17,5 +18,13 @@ export let Router = createBrowserRouter([
                 element: <ProductPage/>,
             }
         ]
+    },
+    {
+        path:'/notFound',
+        element: <ErrorPage type='notFound'/>
+    },
+    {
+        path:'*',
+        element: <ErrorPage type='notFound'/>
     }
 ])

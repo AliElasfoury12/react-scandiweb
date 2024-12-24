@@ -3,13 +3,15 @@ import {Outlet } from "react-router-dom";
 import { AppContext } from "./context";
 import CartOverlay from "./components/cart/CartOverlay";
 import Header from "./components/header/Header";
+import ErrorPage from "./components/ErrorPage";
 
 export default class App extends React.Component {
     state = {
         cart: JSON.parse(localStorage.getItem('cart')) ?? [],
         showCart: false,
         itemsCount: 0,
-        category: ''
+        category: '',
+        hasError: false
     }
 
     setCart = (value) => {
@@ -40,8 +42,16 @@ export default class App extends React.Component {
         localStorage.setItem('cart', JSON.stringify([]))
     }
 
+    componentDidCatch (error) {
+        console.log(error);
+        this.setState({hasError: true})
+    }
   
     render() {
+        if (this.state.hasError) {
+            return <ErrorPage type='error'/>
+        }
+
         let {cart, itemsCount,  category, showCart} = this.state;
         let {setCart, setItemsCount, updateCartCount, setCategory, setShowCart} = this
         return (
@@ -71,7 +81,7 @@ export default class App extends React.Component {
                             <CartOverlay/>
                         </div>
                     : ''}
-                    <Outlet/>
+                   <Outlet/>
                 </AppContext.Provider>
             </div>
         )

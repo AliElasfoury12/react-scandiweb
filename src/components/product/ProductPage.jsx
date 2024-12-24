@@ -5,6 +5,7 @@ import { AppContext } from '../../context'
 import Gallery from './Gallery';
 import ProductDetails from './ProductDetails';
 import { Router } from '../../Router';
+import ErrorPage from '../ErrorPage';
 
 export default class ProductPage extends Component { 
     static contextType = AppContext
@@ -56,7 +57,7 @@ export default class ProductPage extends Component {
     render() {
         let {product, loading} = this.state
     
-        if(loading){return <h1>Loading...</h1> }
+        if(loading) { return <ErrorPage type='loading'/> }
 
         return ( 
             <main className='flex-wrap flex mt-28 gap-10'>
