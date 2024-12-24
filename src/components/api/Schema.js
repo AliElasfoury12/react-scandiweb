@@ -1,8 +1,6 @@
 export const categoriesSchema =`{
     categories{
-       categories{
-            name
-       }
+        name
     }
 }`;
 
