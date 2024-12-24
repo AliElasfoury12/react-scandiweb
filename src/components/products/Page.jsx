@@ -18,24 +18,18 @@ export default class Page extends Component {
     }
 
     getProducts () {
-        //let exixts = localStorage.getItem('products')
-        //if(exixts) {
-        //    this.setProducts(JSON.parse(exixts))
-        //    this.setState({loading: false})
-        //}else{
-        //    API.fetch(productsSchema)
-        //    .then(res => {
-        //        this.setProducts(res.products)
-        //        localStorage.setItem('products', JSON.stringify(res.products)) 
-        //        this.setState({loading: false})
-        //    }); 
-        //}
-        API.fetch(productsSchema)
-        .then(res => {
-            this.setProducts(res.products)
-            //localStorage.setItem('products', JSON.stringify(res.products)) 
+        let exixts = localStorage.getItem('products')
+        if(exixts) {
+            this.setProducts(JSON.parse(exixts))
             this.setState({loading: false})
-        }); 
+        }else{
+            API.fetch(productsSchema)
+            .then(res => {
+                this.setProducts(res.products)
+                localStorage.setItem('products', JSON.stringify(res.products)) 
+                this.setState({loading: false})
+            }); 
+        }
     }
 
     componentDidMount () {

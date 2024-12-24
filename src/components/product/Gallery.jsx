@@ -17,10 +17,10 @@ export default class Gallery extends Component {
 
     componentDidMount () {
         setTimeout(() => {
-            let galleryHeight = document.getElementById('gallery-images').clientHeight
             let mainImgHeight = document.getElementById('main-image').clientHeight
-            this.setState({galleryHeight})
             this.setState({mainImgHeight})
+            let galleryHeight = document.getElementById('gallery-images').clientHeight
+            this.setState({galleryHeight})
         }, 100)
     }
 
@@ -28,9 +28,6 @@ export default class Gallery extends Component {
         let {product} = this.props
         let {image, galleryHeight, mainImgHeight} = this.state
         let gallery = product.gallery
-
-        console.log(galleryHeight, mainImgHeight);
-        
                 
         return ( 
             <div  
@@ -51,7 +48,12 @@ export default class Gallery extends Component {
 
                 <div className='flex relative justify-center h-fit'>
                    
-                    <img id='main-image' className='max-h-[35rem] object-contain' src={product.gallery[image].img} alt="main-image"/>
+                    <img 
+                        id='main-image' 
+                        className='max-h-[35rem] object-contain' 
+                        src={product.gallery[image].img} 
+                        alt="main-image"
+                    />
 
                    {
                     gallery.length > 1 ? 
