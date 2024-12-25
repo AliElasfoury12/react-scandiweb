@@ -23,7 +23,7 @@ export default class CartOverlay extends Component {
 
         return (
             <div
-                className='absolute bg-white p-4 w-[23rem] right-0 z-10 top-16 overflow-y-scroll max-h-[90%]'>
+                className='absolute bg-white p-4 w-[23rem] max-[450px]:w-screen right-0 z-10 top-16 overflow-y-scroll max-h-[90%]'>
 
                 <p>
                     <span className='font-bold'> My Bag,</span> {' ' + itemsCount}
