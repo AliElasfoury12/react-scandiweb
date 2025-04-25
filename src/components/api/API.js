@@ -8,11 +8,11 @@ export default class API
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({query: query, variables: variables}),
         };
-            // 'https://alielasfoury12-scandweb-backend.tiiny.io/'
+            // 'http://alielasfoury12scwe.atwebpages.com/'
             // 'http://127.0.0.1:7000/'
 
         try {
-            let res = await fetch('https://alielasfoury12-scandweb-backend.tiiny.io/', options)
+            let res = await fetch('http://alielasfoury12scwe.atwebpages.com/', options)
             res = await res.json()
             console.log(res);
             return res.data
