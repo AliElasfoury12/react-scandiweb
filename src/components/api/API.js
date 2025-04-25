@@ -12,7 +12,7 @@ export default class API
             // 'http://127.0.0.1:7000/'
 
         try {
-            let res = await fetch('http://alielasfoury12scwe.atwebpages.com/', options)
+            let res = await fetch('https://alielasfoury12scwe.atwebpages.com/', options)
             res = await res.json()
             console.log(res);
             return res.data
